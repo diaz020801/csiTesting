@@ -1,0 +1,24 @@
+name: CI Basico
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  saludo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el código del repositorio
+        uses: actions/checkout@v4
+
+      - name: Mostrar información del entorno
+        run: |
+          echo "Hola desde GitHub Actions"
+          echo "Repositorio: ${{ github.repository }}"
+          echo "Rama: ${{ github.ref_name }}"
+          echo "Commit: ${{ github.sha }}"
+          echo "Ejecutado por: ${{ github.actor }}"
+          echo "Sistema operativo:"
+          uname -a
+          echo "Archivos del repositorio:"
+          ls -la
